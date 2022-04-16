@@ -32,6 +32,9 @@ namespace CalculadoraConsole {
                 case 2: 
                     subtracao();
                     break;
+                case 3:
+                    multiplicacao();
+                    break;
             }
         }
 
@@ -54,6 +57,11 @@ namespace CalculadoraConsole {
         static void subtracao() {
             var result = dadosDeEntrada();
             Console.Write("O Resultado da Substração é: " + (result.Item1 - result.Item2));
+        }
+
+        static void multiplicacao() {
+            var result = dadosDeEntrada();
+            Console.Write("O Resultado da Multiplicação é: " + (result.Item1 * result.Item2));
         }
     }
 }
