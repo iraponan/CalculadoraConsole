@@ -29,6 +29,9 @@ namespace CalculadoraConsole {
                 case 1:
                     soma();
                     break;
+                case 2: 
+                    subtracao();
+                    break;
             }
         }
 
@@ -46,6 +49,11 @@ namespace CalculadoraConsole {
             
             var result = dadosDeEntrada();
             Console.Write("O Resultado da Soma é: " + (result.Item1 + result.Item2));
+        }
+
+        static void subtracao() {
+            var result = dadosDeEntrada();
+            Console.Write("O Resultado da Substração é: " + (result.Item1 - result.Item2));
         }
     }
 }
