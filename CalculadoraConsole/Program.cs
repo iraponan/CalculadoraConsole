@@ -35,6 +35,9 @@ namespace CalculadoraConsole {
                 case 3:
                     multiplicacao();
                     break;
+                case 4:
+                    divisao();
+                    break;
             }
         }
 
@@ -51,17 +54,22 @@ namespace CalculadoraConsole {
         static void soma() {
             
             var result = dadosDeEntrada();
-            Console.Write("O Resultado da Soma é: " + (result.Item1 + result.Item2));
+            Console.Write("O Resultado da Soma de " + result.Item1 + " + " + result.Item2 + " é: " + (result.Item1 + result.Item2));
         }
 
         static void subtracao() {
             var result = dadosDeEntrada();
-            Console.Write("O Resultado da Substração é: " + (result.Item1 - result.Item2));
+            Console.Write("O Resultado da Substração de " + result.Item1 + " - " + result.Item2 + " é: " + (result.Item1 - result.Item2));
         }
 
         static void multiplicacao() {
             var result = dadosDeEntrada();
-            Console.Write("O Resultado da Multiplicação é: " + (result.Item1 * result.Item2));
+            Console.Write("O Resultado da Multiplicação de " + result.Item1 + " x " + result.Item2 + " é: " + (result.Item1 * result.Item2));
+        }
+
+        static void divisao() {
+            var result = dadosDeEntrada();
+            Console.Write("O Resultado da Divisão de " + result.Item1 + " ÷ " + result.Item2 + " é: " + (result.Item1 / result.Item2));
         }
     }
 }
