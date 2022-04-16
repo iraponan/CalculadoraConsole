@@ -7,21 +7,24 @@ using System.Threading.Tasks;
 namespace CalculadoraConsole {
     internal class Program {
         static void Main(string[] args) {
-            Console.Clear();
+            int opcao = 9;
 
-            menu();
-
-            //Pause do console no final da aplicação... Fica aguardando o usuario apertar qualquer tecla para fecharo console.
-            Console.ReadKey();
+            while (opcao != 0) {
+                Console.Clear();
+                opcao = menu(opcao);
+            }
         }
 
-        static void menu() {
-            Console.WriteLine("Calculadora\n" +
-                "Escola uma das operações abaixo.\n" +
-                "1 - Soma\n" +
-                "2 - Subtração\n" +
-                "3 - Multiplicação\n" +
-                "4 - Divisão");
+        static int menu(int opcao) {
+            Console.Write("###--- Calculadora ---###\n" +
+                "Operações Disponíveis.\n" +
+                "   1 - Soma\n" +
+                "   2 - Subtração\n" +
+                "   3 - Multiplicação\n" +
+                "   4 - Divisão\n" +
+                "   5 - Sair\n" +
+                "------------------------------\n" +
+                "Qual operação deseja executar? ");
 
             int escolha = int.Parse(Console.ReadLine());
 
@@ -38,7 +41,23 @@ namespace CalculadoraConsole {
                 case 4:
                     divisao();
                     break;
+                case 5:
+                    for (int i = 5; i > 0; i--) {
+                        Console.WriteLine("Saindo em " + i);
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    opcao = 0;
+                    break;
+                default:
+                    Console.WriteLine("Opção invalida!!! Tente novamente...");
+                    break;
             }
+
+            if (aguardarUsuario(escolha)) {
+                Console.WriteLine("\n\nAperte uma tecla para continuar...");
+                Console.ReadKey();
+            }
+            return opcao;
         }
 
         static (float, float) dadosDeEntrada() {
@@ -51,8 +70,7 @@ namespace CalculadoraConsole {
             return (v1, v2);
         }
 
-        static void soma() {
-            
+        static void soma() {            
             var result = dadosDeEntrada();
             Console.Write("O Resultado da Soma de " + result.Item1 + " + " + result.Item2 + " é: " + (result.Item1 + result.Item2));
         }
@@ -70,6 +88,15 @@ namespace CalculadoraConsole {
         static void divisao() {
             var result = dadosDeEntrada();
             Console.Write("O Resultado da Divisão de " + result.Item1 + " ÷ " + result.Item2 + " é: " + (result.Item1 / result.Item2));
+        }
+
+        static bool aguardarUsuario(int escolha) {
+            if (escolha == 5) {
+                return false;
+            }
+            else {
+                return true;
+            }
         }
     }
 }
